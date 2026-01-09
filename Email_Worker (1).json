@@ -1,0 +1,114 @@
+{
+  "name": "Email_Worker",
+  "nodes": [
+    {
+      "parameters": {
+        "content": "***E-MAIL WORKER***\n\n\n***This Workflow is a Sub-Workflow for sending Emails when attendance is Low***",
+        "height": 320,
+        "width": 768
+      },
+      "type": "n8n-nodes-base.stickyNote",
+      "position": [
+        0,
+        0
+      ],
+      "typeVersion": 1,
+      "id": "6be688f6-f16f-4de2-a6ed-2e17fce2622e",
+      "name": "Sticky Note"
+    },
+    {
+      "parameters": {
+        "sendTo": "25cai231@americancollege.edu.in",
+        "subject": "⚠️ URGENT: Attendance Warning",
+        "emailType": "text",
+        "message": "=Your attendance has dropped below 75%.Please meet the Head of your Department and the respective subject teacher and do attend the remaining set of classes properly for better attendance percentage, So you don't have to pay fine or get RS or RC....\n",
+        "options": {}
+      },
+      "id": "3427a719-03d6-4ed5-b731-0a7bd824e818",
+      "name": "Send_Warning_Email",
+      "type": "n8n-nodes-base.gmail",
+      "typeVersion": 2.1,
+      "position": [
+        544,
+        112
+      ],
+      "webhookId": "44bc0ee3-1bea-497a-b3f6-e0d6a074c211",
+      "credentials": {
+        "gmailOAuth2": {
+          "id": "2ujbROmn0rUh4nGt",
+          "name": "Gmail account"
+        }
+      }
+    },
+    {
+      "parameters": {
+        "workflowInputs": {
+          "values": [
+            {
+              "name": "subject_name"
+            }
+          ]
+        }
+      },
+      "type": "n8n-nodes-base.executeWorkflowTrigger",
+      "typeVersion": 1.1,
+      "position": [
+        96,
+        112
+      ],
+      "id": "acac3a19-a796-4b09-96fb-722c593a7606",
+      "name": "When Executed by Another Workflow"
+    },
+    {
+      "parameters": {
+        "amount": 1
+      },
+      "type": "n8n-nodes-base.wait",
+      "typeVersion": 1.1,
+      "position": [
+        336,
+        112
+      ],
+      "id": "0da3fa16-7579-4793-ba23-796b137c9db8",
+      "name": "Wait",
+      "webhookId": "3a31f173-f9d5-4801-9bfb-dab52b2547b3"
+    }
+  ],
+  "pinData": {},
+  "connections": {
+    "When Executed by Another Workflow": {
+      "main": [
+        [
+          {
+            "node": "Wait",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    },
+    "Wait": {
+      "main": [
+        [
+          {
+            "node": "Send_Warning_Email",
+            "type": "main",
+            "index": 0
+          }
+        ]
+      ]
+    }
+  },
+  "active": false,
+  "settings": {
+    "executionOrder": "v1",
+    "availableInMCP": false
+  },
+  "versionId": "c8035235-4b47-4fcd-808a-340485a19370",
+  "meta": {
+    "templateCredsSetupCompleted": true,
+    "instanceId": "00c81e359ea296fb095cbf236a4840128174c05bc76b1ec059cc3faf0d8ad544"
+  },
+  "id": "JagWNW-IX8oPGn0QYytmD",
+  "tags": []
+}

@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The American College | Madurai</title>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-blue: #036C9E;
+            --dark-blue: #1e2d49;
+            --accent-green: #51be78;
+            --light-bg: #f8f9fa;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background: var(--primary-blue);
+            color: white;
+            padding: 8px 0;
+            font-size: 0.85rem;
+        }
+
+        /* Navigation */
+        .navbar {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 15px 0;
+        }
+
+        .navbar-brand img {
+            height: 60px;
+        }
+
+        .nav-link {
+            font-weight: 600;
+            color: var(--dark-blue) !important;
+            margin: 0 10px;
+            transition: 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--accent-green) !important;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), 
+                        url('https://americancollege.edu.in/wp-content/uploads/2021/03/IMG_3762-scaled-min.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 70vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+
+        /* Principal Section */
+        .principal-section {
+            background: var(--dark-blue);
+            color: white;
+            padding: 80px 0;
+        }
+
+        .principal-img {
+            border: 5px solid var(--accent-green);
+            border-radius: 15px;
+            max-width: 100%;
+        }
+
+        /* Card Widgets */
+        .portal-card {
+            background: white;
+            border-bottom: 4px solid var(--primary-blue);
+            padding: 40px;
+            text-align: center;
+            transition: 0.3s;
+            cursor: pointer;
+            margin-top: -50px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .portal-card:hover {
+            transform: translateY(-10px);
+            background: var(--primary-blue);
+            color: white;
+        }
+ /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('https://americancollege.edu.in/wp-content/uploads/2021/03/IMG_3762-scaled-min.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+        }
+
+        /* --- FLIP CARD CORE LOGIC --- */
+        .flip-card-container {
+            margin-top: -60px; /* Overlap hero */
+            perspective: 1000px;
+        }
+
+        .flip-card {
+            height: 280px;
+            width: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+            cursor: pointer;
+        }
+
+        .flip-card-wrapper:hover .flip-card {
+            transform: rotateY(180deg);
+        }
+
+        .flip-card-front, .flip-card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            backface-visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            border-radius: 4px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Front Side Styles */
+        .flip-card-front {
+            background-size: cover;
+            background-position: center;
+            color: white;
+            z-index: 2;
+        }
+
+        /* Adding overlay to front side for text readability */
+        .flip-card-front::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0, 0, 0, 0.4);
+            border-radius: 4px;
+            z-index: -1;
+        }
+
+        /* Back Side Styles */
+        .flip-card-back {
+            background: #282828;
+            color: white;
+            transform: rotateY(180deg);
+            border-bottom: 5px solid var(--accent-green);
+        }
+
+        .flip-card i {
+            margin-bottom: 15px;
+            color: #fff;
+        }
+
+        .flip-card h3 {
+            font-weight: 300;
+            font-size: 1.6rem;
+        }
+
+        .btn-portal {
+            background: var(--accent-green);
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            margin-top: 15px;
+            font-size: 0.9rem;
+            border-radius: 20px;
+        }
+        /* --- END FLIP CARD LOGIC --- */
+        /* Footer */
+        footer {
+            background: #111;
+            color: #ccc;
+            padding: 60px 0 20px;
+        }
+
+        .footer-title {
+            color: white;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+    </style>
+
+	<link href="https://cdn.jsdelivr.net/npm/@n8n/chat/dist/style.css" rel="stylesheet" />
+<script type="module">
+	import { createChat } from 'https://cdn.jsdelivr.net/npm/@n8n/chat/dist/chat.bundle.es.js';
+
+	createChat({
+		webhookUrl: 'https://botnexai.app.n8n.cloud/webhook/2db5d9ea-ecb1-4dc1-a0ad-e564454f8534/chat'
+	});
+
+    createChat({
+	webhookUrl: 'https://botnexai.app.n8n.cloud/webhook/2db5d9ea-ecb1-4dc1-a0ad-e564454f8534/chat',
+	webhookConfig: {
+		method: 'POST',
+		headers: {}
+	},
+	target: '#n8n-chat',
+	mode: 'window',
+	chatInputKey: 'chatInput',
+	chatSessionKey: 'sessionId',
+	loadPreviousSession: true,
+	metadata: {},
+	showWelcomeScreen: false,
+	defaultLanguage: 'en',
+	initialMessages: [
+		'Hi there! 👋',
+		'My name is BOTNEX AI. How can I assist you today?'
+	],
+	i18n: {
+		en: {
+			title: 'Hi there! 👋',
+			subtitle: "Start a chat. We're here to help you 24/7.",
+			footer: '',
+			getStarted: 'New Conversation',
+			inputPlaceholder: 'Type your question..',
+		},
+	},
+	enableStreaming: false,
+});
+   
+</script>
+
+
+</head>
+<body>
+
+    <div class="top-bar">
+        <div class="container d-flex justify-content-between">
+            <div>
+                <i class="fa fa-envelope me-2"></i> acmdu1881@americancollege.edu.in
+                <i class="fa fa-phone ms-4 me-2"></i> 0452-2530070
+            </div>
+            <div class="d-none d-md-block">
+                NIRF 2025: Ranked 59th among colleges in India
+            </div>
+        </div>
+    </div>
+
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="https://americancollege.edu.in/wp-content/uploads/2020/01/amclogo33-400x55.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#">HOME</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">COLLEGE</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">ACADEMICS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">ADMISSIONS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">DEPARTMENTS</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#">CONTACT</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="hero-section">
+        <div class="container hero-content">
+            <h1 class="display-3">THE AMERICAN COLLEGE</h1>
+            <p class="lead">Serving the cause of higher education since 1881</p>
+            <button class="btn btn-success btn-lg px-5 mt-3">Apply Now</button>
+        </div>
+    </div>
+
+  <div class="container flip-card-container">
+        <div class="row g-4 justify-content-center">
+            
+            <div class="col-md-4 flip-card-wrapper">
+                <div class="flip-card">
+                    <div class="flip-card-front" style="background-image: url('https://americancollege.edu.in/wp-content/uploads/2020/07/asas.jpg');">
+                        <i class="fa fa-user-graduate fa-3x"></i>
+                        <h3>Students</h3>
+                        <p class="small">Enter Portal</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Students</h3>
+                        <p>Access exams, marks, and attendance records.</p>
+                        <button class="btn btn-portal">Click to Login</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 flip-card-wrapper">
+                <div class="flip-card">
+                    <div class="flip-card-front" style="background-image: url('https://americancollege.edu.in/wp-content/uploads/2018/08/hp2-col-1.jpg');">
+                        <i class="fa fa-chalkboard-teacher fa-3x"></i>
+                        <h3>Faculty</h3>
+                        <p class="small">Enter Portal</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Faculty</h3>
+                        <p>Manage courses, research, and department data.</p>
+                        <button class="btn btn-portal">Staff Login</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4 flip-card-wrapper">
+                <div class="flip-card">
+                    <div class="flip-card-front" style="background-image: url('https://americancollege.edu.in/wp-content/uploads/2018/08/hp2-col-4.jpg');">
+                        <i class="fa fa-users fa-3x"></i>
+                        <h3>Parent</h3>
+                        <p class="small">Enter Portal</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <h3>Parent</h3>
+                        <p>Monitor your ward's academic journey.</p>
+                        <button class="btn btn-portal">Parent Login</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <section class="principal-section mt-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-4 text-center mb-4 mb-lg-0">
+                    <img src="https://americancollege.edu.in/wp-content/uploads/2025/06/IMG_1606web-scaled-800x533.jpg" class="principal-img" alt="Principal">
+                    <h5 class="mt-3 text-success">Dr. J. Paul Jayakar</h5>
+                    <p>Principal & Secretary</p>
+                </div>
+                <div class="col-lg-8">
+                    <h2 class="mb-4">Principal’s Message</h2>
+                    <p class="lead" style="line-height: 1.8;">
+                        Founded in 1881, the American College has grown phenomenally in academic excellence. 
+                        A pioneer in higher education, the College has dedicated itself to training students to serve God and people. 
+                        We continue to offer courses that are globally relevant and equipping students with in-demand employability skills.
+                    </p>
+                    <button class="btn btn-outline-light mt-3">Read More <i class="fa fa-arrow-right ms-2"></i></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <img src="https://kingster.americancollege.edu.in/wp-content/uploads/2020/03/amc221.png" class="mb-3" alt="Footer Logo">
+                    <p>Tallakkulam, Madurai – 625002,<br>Tamilnadu, India.</p>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">QUICK LINKS</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#" class="text-decoration-none text-secondary">History</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">NIRF Reports</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">Selection List</a></li>
+                        <li><a href="#" class="text-decoration-none text-secondary">RTI Act</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="footer-title">CONNECT WITH US</h5>
+                    <div class="d-flex gap-3 fs-4">
+                        <a href="#" class="text-white"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-white"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <hr class="mt-5 border-secondary">
+            <div class="text-center small">
+                © 2026 The American College. All Rights Reserved.
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
